@@ -1,0 +1,17 @@
+{% extends "./layout.html" %}
+
+{% block title %} Lista de Médicos {% endblock %}
+
+{% block conteudo %}
+
+  <h1>Lista de Médicos</h1>
+
+  {% for medico in medicos %}
+    <div class="medico mt-4 d-flex">
+      <strong>{{ medico.nome }}</strong>
+      <p class="ms-4">{{ medico.cpf }}</p>
+      <a class="ms-4" href="{% url 'infoMedicos' medico.id %}">Visualizar informações</a>
+    </div>
+  {% endfor %}
+  
+{% endblock %}

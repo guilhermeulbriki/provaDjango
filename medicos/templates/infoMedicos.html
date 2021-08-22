@@ -1,0 +1,55 @@
+{% extends "./layout.html" %}
+
+{% block title %} Lista de Médicos {% endblock %}
+
+{% block conteudo %}
+
+  <h1>Informações do Médico - {{ medico.nome }}</h1>
+
+  <div class="mt-4">
+    <span class="d-flex mt-2">
+      <strong>CPF:</strong>
+      <p class="ms-2">{{ medico.cpf }}</p>
+    </span>
+    <span class="d-flex mt-2">
+      <strong>E-mail:</strong>
+      <p class="ms-2">{{ medico.email }}</p>
+    </span>
+    <span class="d-flex mt-2">
+      <strong>Telefone:</strong>
+      <p class="ms-2">{{ medico.telefone }}</p>
+    </span>
+    <span class="d-flex mt-2">
+      <strong>CRM:</strong>
+      <p class="ms-2">{{ medico.crm }}</p>
+    </span>
+    <span class="d-flex mt-2">
+      <strong>Especialidade:</strong>
+      <p class="ms-2">{{ medico.especialidade }}</p>
+    </span>
+  </div>
+
+  <h2 class="mt-4">Consultas desse médicos:</h2>
+
+  {% for consulta in consultas %}
+    <div class="medico mt-4 d-flex justify-content-between">
+      <span class="d-flex">
+        <strong>Paciente:</strong>
+        <p class="ms-2">{{ consulta.paciente }}</p>
+      </span>
+      <span class="d-flex">
+        <strong>Data:</strong>
+        <p class="ms-2">{{ consulta.data }}</p>
+      </span>
+      <span class="d-flex">
+        <strong>Convenio:</strong>
+        <p class="ms-2">{{ consulta.convenio }}</p>
+      </span>
+      <span class="d-flex">
+        <strong>Valor:</strong>
+        <p class="ms-2">{{ consulta.valor }}</p>
+      </span>
+    </div>
+  {% endfor %}
+  
+{% endblock %}
